@@ -1,0 +1,97 @@
+.sidebar {
+  overflow: hidden;
+}
+
+.sidebar__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.2rem;
+}
+
+.sidebar__items {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  margin-bottom: auto;
+}
+.sidebar__header__title {
+  font-size: clamp(0.9rem, -0.875rem + 1.4vw, 1rem);
+  font-weight: 300;
+}
+
+.sidebar__header__btn {
+  font-size: 0.9rem;
+  color: var(--grey);
+}
+
+.sidebar__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.8rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  background-color: rgb(255, 255, 255);
+  overflow: hidden;
+
+  opacity: 0;
+  width: 0;
+  border: none;
+  transition: all 0.2s ease-in;
+  z-index: 4;
+}
+
+.show {
+  width: 45vh;
+  overflow: scroll;
+  opacity: 1;
+
+  transition: all 0.2s ease-out;
+}
+.hide {
+  padding: 0;
+  display: none;
+}
+.sidebar__divider {
+  height: 1.3px;
+  width: 100%;
+  background-color: var(--grey);
+  margin: 1.3rem 0rem;
+}
+.sidebar__total > span {
+  font-weight: 700;
+}
+.sidebar__total-btn {
+  display: block;
+  margin: 0 auto;
+  background-color: black;
+  color: white;
+  width: 80%;
+  padding: 1rem;
+  font-size: clamp(0.7rem, -0875rem + 1.2vw, 1.2rem);
+}
+
+.sidebar__total-btn:hover {
+  color: black;
+  background-color: white;
+  border: 1px rgb(41, 40, 40) solid;
+  transition: all 0.5s ease-in-out;
+}
+.sidebar__total-btn:disabled {
+  cursor: default;
+  pointer-events: none;
+  background-color: rgba(220, 220, 223, 0.829);
+  color: black;
+}
+
+@media only screen and (min-width: 768px) {
+  .sidebar {
+    display: block;
+    overflow: hidden;
+  }
+}

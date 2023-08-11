@@ -1,0 +1,108 @@
+.gift__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 5rem;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+}
+
+.gift__offer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  padding: 2rem;
+  background-color: var(--light-grey);
+}
+.gift__offer__img {
+  flex: 0.4;
+}
+.gift__offer__title {
+  font-size: clamp(1.9rem, -0.875rem + 4.5vw, 5rem);
+  font-weight: 900;
+  text-align: center;
+  text-transform: capitalize;
+  line-height: 1.3;
+  margin-bottom: 2rem;
+}
+
+.gift__offer__des {
+  font-size: clamp(1rem, -0.875rem + 1.9rem, 2.1rem);
+  color: var(--darkgrey);
+  max-width: 600px;
+  line-height: 1.55;
+}
+
+.gift__form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.gift__form__input {
+  background-color: transparent;
+  border: none;
+  border-bottom: solid 2px var(--blackgrey);
+  font-size: clamp(1rem, -0.875rem + 1.9vw, 1.5rem);
+  padding: 0.4em;
+  width: 100%;
+}
+
+.gift__form__btn {
+  padding: 0.7em 2em;
+  border-radius: 25px;
+  font-weight: 700;
+  color: white;
+  background-color: var(--black);
+  font-size: clamp(1rem, -0.875rem + 2.3vw, 1.2rem);
+}
+
+.gift__form__btn:hover {
+  transition: all 0.2s ease-in;
+  opacity: 0.9;
+}
+
+.gift__offer__title,
+.gift__offer__des {
+  text-align: center;
+}
+@media screen and (min-width: 930px) {
+  .gift__list {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .gift__offer {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .gift__form {
+    align-items: flex-start;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .gift__offer {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .gift__offer__title {
+    text-align: left;
+  }
+
+  .gift__form {
+    align-items: flex-start;
+  }
+}
+
+@media screen and (min-width: 430px) {
+  .gift__offer__title,
+  .gift__offer__des {
+    text-align: left;
+  }
+}

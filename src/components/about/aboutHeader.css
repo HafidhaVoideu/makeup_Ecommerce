@@ -1,0 +1,21 @@
+.about-header__divider {
+  height: 1px;
+  width: 100%;
+  margin: 0 auto;
+  background: var(--light-grey-2);
+}
+
+.about-header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.about-header__container > span,
+.about-header__title {
+  color: var (--darkgrey);
+}
+.about-header__title {
+  font-size: clamp(1rem, -0.875rem + 1.88vw, 2.2rem);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}

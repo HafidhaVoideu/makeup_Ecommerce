@@ -1,0 +1,18 @@
+.services__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 5rem;
+  max-width: 1500px;
+  /* width: 100%; */
+  margin: 0 auto;
+  padding: 4rem 0.2rem;
+}
+
+@media screen and (min-width: 930px) {
+  .services__list {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

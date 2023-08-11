@@ -1,0 +1,44 @@
+.review {
+  min-width: 330px;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border-radius: 14px;
+  border: solid 1px grey;
+  padding: 3rem 2rem;
+}
+.review__rating > svg {
+  margin-bottom: 1.5rem;
+  margin-left: 0.2rem;
+
+  font-size: 1.2rem;
+}
+.review__comment {
+  font-size: clamp(1rem, -0.875rem + 1.2vw, 2rem);
+  line-height: 1.5;
+  color: var(--blackgrey);
+}
+
+.review__profile {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.review__profile__img {
+  height: 80px;
+  width: 80px;
+}
+
+.review__profile__name {
+  font-size: clamp(1rem, -0.875rem + 1.2vw, 3rem);
+  margin-bottom: 0.3rem;
+  text-transform: capitalize;
+}
+.review__profile__date {
+  font-size: clamp(0.8rem, -0.875rem + 0.9vw, 1rem);
+
+  color: var(--darkgrey);
+  font-weight: 300;
+}

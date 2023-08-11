@@ -1,0 +1,25 @@
+.favoriteitem__btn {
+  background-color: var(--black);
+  color: white;
+  padding: 0.5rem 1rem;
+  text-transform: capitalize;
+  font-size: clamp(0.7rem, -0.875rem + 1vw, 1rem);
+}
+
+.favoriteitem__btn:hover {
+  transition: all 0.2s ease-in-out;
+  color: var(--black);
+  background-color: white;
+}
+
+.favoriteItem__price {
+  font-size: clamp(0.9rem, -0.875rem + 1vw, 1rem);
+  font-weight: 700;
+}
+
+.favoriteitem__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}

@@ -1,0 +1,45 @@
+.sort {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+  gap: 0rem;
+}
+
+.sort > label {
+  font-weight: 700;
+  text-transform: capitalize;
+  font-size: clamp(0.8rem, -0.875rem + 1vw, 1.2rem);
+}
+
+option:hover {
+  background-color: rgb(255, 217, 0);
+}
+
+.sort > select {
+  border: none;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  font-size: clamp(0.8rem, -0.875rem + 1vw, 1.2rem);
+  font-weight: 500;
+  cursor: pointer;
+
+  width: 170px;
+  padding: 1px 24px;
+  line-height: 1;
+  border: 0;
+  height: 28px;
+  background: url(../../assets//arrow.png) no-repeat right #ffffff;
+  -webkit-appearance: none;
+  background-position-x: 150px;
+}
+
+@media screen and (min-width: 500px) {
+  .sort > select {
+    height: 34px;
+  }
+
+  .sort {
+    gap: 2rem;
+  }
+}

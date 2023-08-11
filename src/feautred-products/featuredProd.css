@@ -1,0 +1,39 @@
+.featured-prod {
+  min-height: 100vh;
+}
+
+/********************* Featured Prod Title *********** */
+/* **************************************************** */
+
+.featured-prod__header {
+  display: flex;
+  gap: 1rem;
+  padding: 0.3em;
+  justify-content: space-between;
+}
+
+.featured-prod__title {
+  font-size: clamp(1.1rem, -0.875rem + 2.44vw, 2.4rem);
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.featured-prod__btn {
+  background-color: var(--orange);
+  font-size: clamp(0.7rem, -0.875rem + 2vw, 2.5rem);
+  padding: 0.4rem 1.8em;
+  font-weight: 500;
+  border-radius: 20px;
+}
+
+/********************* Featured Prod Content*********** */
+/* **************************************************** */
+
+.featured-prod__content {
+  margin: 4rem 1rem;
+  display: grid;
+  gap: 3rem;
+  justify-items: center;
+  place-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}

@@ -1,0 +1,21 @@
+:root {
+  --orange: #fdcc58;
+  --black: #0c080b;
+  --green: #1e3329;
+  --grey: #b8b8b8;
+  --blackgrey: #313131;
+  --darkgrey: #929292;
+  --palewhite: #fafafa;
+  --orange-light: #fffade;
+  --light-grey-2: #eae5e5;
+  --light-grey: #fafafa;
+  --dark-grey: #1e1d1d;
+  --beige: #fefbf3;
+  /* --light-grey-2: rgb(249, 249, 245); */
+
+  /* --phone: */
+  --tabletes: 600px;
+  --landscape--tablets: 768px;
+  --laptop: 992px;
+  --large-desktop: 1200px;
+}
