@@ -218,7 +218,7 @@ const ItemDetails = () => {
         <h1 className="item-details__rec-title"> You Might Also like </h1>
 
         <div className="item-details__rec-filter">
-          {["Vegan", "Natural", "Organic"].map((cat, index) => (
+          {["Vegan", "Natural", "Organic"].map(cat => (
             <button
               key={cat}
               className={`item-details__btn  btn--clear ${
