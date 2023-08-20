@@ -36,7 +36,6 @@ const FeaturedProd = ({ title, link }: FeaturedProdProps) => {
   }, []);
 
   if (status === "success") {
-    console.log("products:", products);
     content = products
       .slice(0, 8)
       ?.map(

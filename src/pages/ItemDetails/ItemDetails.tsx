@@ -106,7 +106,7 @@ const ItemDetails = () => {
       .includes(itemid || "")
   );
 
-  console.log("item:", item);
+
 
   const rating = !item?.rating ? 1 : Math.floor(item?.rating);
 

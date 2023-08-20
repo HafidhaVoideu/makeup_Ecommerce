@@ -1,11 +1,13 @@
 .sidebar {
   overflow: hidden;
+  padding: 2rem;
 }
 
 .sidebar__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0.5rem;
   margin: 0.2rem;
 }
 
