@@ -10,6 +10,7 @@ import {
 import { AppDispatch } from "../../redux/store";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
 import { ProductType } from "../../redux/features/shop/shopSlice";
+import { useNavigate } from "react-router-dom";
 
 const CartItem = ({
   id,
@@ -20,17 +21,22 @@ const CartItem = ({
   image_link,
   api_featured_image,
 }: ProductType) => {
+  console.log("apI, api", api_featured_image);
   const [counter, setCounter] = useState(count);
   const dispatch = useDispatch<AppDispatch>();
-
+  const navigate = useNavigate();
   useEffect(() => {
     dispatch(countTotalItems());
   }, [counter]);
 
+  const imageUrl = api_featured_image || image_link;
   return (
-    <article className="cartItem">
+    <article
+      className="cartItem"
+      onClick={() => navigate(`/item/${imageUrl?.split("/").join("")}`)}
+    >
       <div className="cartItem__img">
-        <img src={image_link || api_featured_image} alt="product" />
+        <img src={imageUrl} alt="product" />
       </div>
 
       <div className="cartItem__content">

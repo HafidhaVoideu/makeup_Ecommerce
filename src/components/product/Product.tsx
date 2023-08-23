@@ -25,12 +25,12 @@ const Product = ({
 
   const navigate = useNavigate();
 
+  const imageUrl = api_featured_image || image_link;
+
   return (
     <article
       className="product"
-      onClick={() =>
-        navigate(`/item/${api_featured_image?.split("/").join("")}`)
-      }
+      onClick={() => navigate(`/item/${imageUrl?.split("/").join("")}`)}
       onMouseOver={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
@@ -45,6 +45,7 @@ const Product = ({
                 price,
                 count,
                 image_link,
+                api_featured_image,
               },
             })
           )
@@ -64,6 +65,7 @@ const Product = ({
                 price,
                 count,
                 image_link,
+                api_featured_image,
                 category,
               },
             })

@@ -27,13 +27,17 @@ const Header = () => {
   const dispatch = useDispatch<AppDispatch>();
   const favoriteItems = useSelector(getFavoriteItems);
   const carItems = useSelector(getCartItems);
+  const { pathname } = useLocation();
 
   const navItems = ["", "shop", "blog", "about"].map((nav, index) => (
-    <li key={index} onClick={() => navigate(`/${nav}`)}>
+    <li
+      className={`${pathname === "/" + nav ? "orange--text" : undefined}`}
+      key={index}
+      onClick={() => navigate(`/${nav}`)}
+    >
       {!nav ? "home" : nav}
     </li>
   ));
-  const { pathname } = useLocation();
   useEffect(() => {
     setToggle(false);
     setIsModal(false);

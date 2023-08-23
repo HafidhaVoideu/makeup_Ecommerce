@@ -4,6 +4,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .header__logo {
@@ -101,6 +102,7 @@
   text-align: center;
   cursor: pointer;
 }
+
 
 .header__nav__list li {
   text-transform: capitalize;
@@ -228,6 +230,9 @@
   }
 }
 
+.orange--text {
+  color: var(--orange);
+}
 @media only screen and (min-width: 1200px) {
   .header__logo {
     height: 70px;

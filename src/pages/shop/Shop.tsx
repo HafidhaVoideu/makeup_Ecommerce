@@ -65,9 +65,10 @@ const Shop = () => {
           maxPrice,
         })
       );
-    else dispatch(resetProducts());
+    dispatch(resetProducts());
 
     setPage(0);
+    setIsMenu(false);
   }, [brand, tag, rating, type, category, maxPrice, minPrice]);
 
   const handleMaxPrice = (value: string) => {
@@ -84,36 +85,39 @@ const Shop = () => {
   if (status === "loading") content = <Loading />;
   else if (status === "failed") content = <p> {error} </p>;
   else if (status === "success") {
-    content = (
-      <div className="shop__products">
-        {shopProducts
-          ?.slice(page * maxProducts, page * maxProducts + maxProducts)
-          .map(
-            ({
-              id,
-              brand,
-              category,
-              description,
-              image_link,
-              price,
-              count,
-              api_featured_image,
-            }) => (
-              <Product
-                api_featured_image={api_featured_image}
-                id={id}
-                category={category}
-                key={id}
-                brand={brand}
-                description={description}
-                image_link={image_link}
-                price={price}
-                count={count}
-              />
-            )
-          )}
-      </div>
-    );
+    if (shopProducts.length === 0)
+      content = <p className="unfound"> No Items Found</p>;
+    else
+      content = (
+        <div className="shop__products">
+          {shopProducts
+            ?.slice(page * maxProducts, page * maxProducts + maxProducts)
+            .map(
+              ({
+                id,
+                brand,
+                category,
+                description,
+                image_link,
+                price,
+                count,
+                api_featured_image,
+              }) => (
+                <Product
+                  api_featured_image={api_featured_image}
+                  id={id}
+                  category={category}
+                  key={id}
+                  brand={brand}
+                  description={description}
+                  image_link={image_link}
+                  price={price}
+                  count={count}
+                />
+              )
+            )}
+        </div>
+      );
   }
 
   return (

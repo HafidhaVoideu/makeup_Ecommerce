@@ -4,11 +4,11 @@ const Loading = () => {
   return (
     <div
       style={{
-        margin: "8rem auto",
+        margin: "auto auto",
         width: "max-content",
       }}
     >
-      <ReactLoading type="spin" color="#c6c6c6" height={175} width={175} />;
+      <ReactLoading type="spin" color="#c6c6c6" height={140} width={140} />;
     </div>
   );
 };

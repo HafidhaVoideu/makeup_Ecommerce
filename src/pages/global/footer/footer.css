@@ -81,11 +81,9 @@
 }
 .footer__socials > svg {
   cursor: pointer;
-  color: var(--orange);
   margin-right: 1rem;
   padding: 0.3rem;
-  border: 2px solid var(--orange);
-  font-size: clamp(2.2rem, -0.875rem + 2vw, 0.9rem);
+  font-size: clamp(2.2rem, -0.875rem + 3.5vw, 3rem);
 }
 
 .footer__rights {

@@ -99,26 +99,27 @@ const ItemDetails = () => {
       );
   }
 
-  const item = allProducts?.find(({ api_featured_image }) =>
-    api_featured_image
-      ?.split("/")
-      .join("")
-      .includes(itemid || "")
+  const item = allProducts?.find(
+    ({ api_featured_image, image_link }) =>
+      api_featured_image
+        ?.split("/")
+        .join("")
+        .includes(itemid || "") ||
+      image_link
+        ?.split("/")
+        .join("")
+        .includes(itemid || "")
   );
-
-
 
   const rating = !item?.rating ? 1 : Math.floor(item?.rating);
 
+  const imageUrl = item?.api_featured_image || item?.image_link;
   return (
     <section className="section  item-details ">
       {item ? (
         <div className="item-details__content">
           <div className="item-details__img">
-            <img
-              src={item.api_featured_image || item.image_link}
-              alt="product"
-            />
+            <img src={imageUrl} alt="product" />
           </div>
           <div className="item-details__info">
             {/* favorite button */}
@@ -204,12 +205,14 @@ const ItemDetails = () => {
             </article>
             <article className="item-details__des">
               <h1 className="item-details__des__title"> description</h1>
-              <p>{item?.description}</p>
+              <p>{item?.description.substring(0, 600)}</p>
             </article>
           </div>
         </div>
       ) : (
-        <Loading />
+        <div className="loading">
+          <Loading />
+        </div>
       )}
 
       {/* Recommendations Section */}
@@ -218,7 +221,7 @@ const ItemDetails = () => {
         <h1 className="item-details__rec-title"> You Might Also like </h1>
 
         <div className="item-details__rec-filter">
-          {["Vegan", "Natural", "Organic"].map(cat => (
+          {["Vegan", "Natural", "Organic"].map((cat) => (
             <button
               key={cat}
               className={`item-details__btn  btn--clear ${

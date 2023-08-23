@@ -1,40 +1,82 @@
 import { useEffect, useState } from "react";
 import "./search.css";
 import { GoSearch } from "react-icons/go";
-import { AiFillCloseCircle } from "react-icons/ai";
 import axios from "../../axios/axios";
-
+import Loading from "../loading/Loading";
 import SearchItem from "./SearchItem";
 import { ProductType } from "../../redux/features/shop/shopSlice";
 const Search = () => {
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState<ProductType[]>([]);
 
+  const [status, setStatus] = useState("idle");
+  const [error, setError] = useState("");
   const handleSearch = (e: React.SyntheticEvent) => {
     e.preventDefault();
-  };
-
-  async function fetchBrand() {
-    try {
-      const response = await axios.get(`?brand=${search}`);
-      setSearchResults(response.data);
-      return response;
-    } catch (error) {}
-  }
-
-  async function fetchProduct() {
-    try {
-      const response = await axios.get(`?product_type=${search}`);
-      setSearchResults(response.data);
-      return response;
-    } catch (error) {}
-  }
-  useEffect(() => {
     if (search) {
       fetchProduct();
       if (!searchResults.length) fetchBrand();
     }
+  };
+
+  async function fetchBrand() {
+    setStatus("pending");
+    try {
+      const response = await axios.get(`?brand=${search}`);
+      setSearchResults(response.data);
+      setTimeout(() => {
+        setStatus("success");
+      }, 2000);
+
+      return response;
+    } catch (error) {
+      setStatus("failed");
+      setError(error as string);
+    }
+  }
+
+  async function fetchProduct() {
+    setStatus("pending");
+
+    try {
+      const response = await axios.get(`?product_type=${search}`);
+      setSearchResults(response.data);
+
+      setTimeout(() => {
+        setStatus("success");
+      }, 2000);
+
+      return response;
+    } catch (error) {
+      setStatus("failed");
+      setError(error as string);
+    }
+  }
+
+  useEffect(() => {
+    if (!search) {
+      setStatus("idle");
+      setSearchResults([]);
+    }
   }, [search]);
+
+  let content;
+
+  if (status === "success")
+    if (!searchResults.length)
+      content = <p className="unfound">No Items Found</p>;
+    else
+      content = (
+        <ul className="search__list">
+          {searchResults?.map((product) => (
+            <li key={product.id}>
+              <SearchItem {...product} />
+            </li>
+          ))}
+        </ul>
+      );
+  else if (status === "pending") content = <Loading />;
+  else content = <p>{error}</p>;
 
   return (
     <div className="search__container">
@@ -50,15 +92,6 @@ const Search = () => {
           placeholder="search for a produt or a brand..."
         />
 
-        {search && (
-          <button
-            onClick={() => setSearch("")}
-            className="search__btn-close  btn--clear"
-          >
-            <AiFillCloseCircle />
-          </button>
-        )}
-
         <button
           type="submit"
           className={`${search && "black-bg"} search__btn  btn--clear   `}
@@ -67,20 +100,13 @@ const Search = () => {
         </button>
       </form>
 
-      {/* search Results */}
+      <div className="search__results">
+        <h1 className="search__title"> products</h1>
 
-      {searchResults.length !== 0 && (
-        <div className="search__results">
-          <h1 className="search__title"> products</h1>
-          <ul className="search__list">
-            {searchResults?.map((product) => (
-              <li key={product.id}>
-                <SearchItem {...product} />
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+        {content}
+      </div>
+
+      {/* search Results */}
     </div>
   );
 };

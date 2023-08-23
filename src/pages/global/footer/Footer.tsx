@@ -81,9 +81,9 @@ const Footer = () => {
         </ul>
 
         <div className="footer__socials">
-          <RiFacebookFill color="white" fill="white" />
-          <RiTwitterFill color="white" fill="white" />
-          <RiInstagramLine color="white" fill="white" />
+          <RiFacebookFill fill="#fdcc58" />
+          <RiTwitterFill fill="#fdcc58" />
+          <RiInstagramLine fill="#fdcc58" />
         </div>
       </div>
 

@@ -90,80 +90,76 @@ const Sidebar = () => {
   });
 
   return (
-    <>
-      <div className="sidebar">
-        <div
-          onClick={() => {
-            if (isFavoritesOpen) dispatch(setIsFavorite());
+    <div className="sidebar">
+      <div
+        onClick={() => {
+          if (isFavoritesOpen) dispatch(setIsFavorite());
 
-            if (isOpen) dispatch(setIsCartOpen());
-          }}
-          className={`${!isOpen && !isFavoritesOpen && "hide"} overlay`}
-        />
-        <aside
-          className={`${
-            (isOpen || isFavoritesOpen) && "show"
-          }  sidebar__content`}
-        >
-          {/* sidebar Header */}
+          if (isOpen) dispatch(setIsCartOpen());
+        }}
+        className={`${!isOpen && !isFavoritesOpen && "hide"} overlay`}
+      />
+      <aside
+        className={`${(isOpen || isFavoritesOpen) && "show"}  sidebar__content`}
+      >
+        {/* sidebar Header */}
 
-          <header className="sidebar__header">
-            <h1 className="sidebar__header__title">
-              {!isFavoritesOpen ? "Shopping bag" : "Favorites"}
-            </h1>
+        <header className="sidebar__header">
+          <h1 className="sidebar__header__title">
+            {!isFavoritesOpen ? "Shopping bag" : "Favorites"}
+          </h1>
+          <button
+            onClick={() => {
+              if (isFavoritesOpen) dispatch(setIsFavorite());
+              else if (isOpen) dispatch(setIsCartOpen());
+            }}
+            className="sidebar__header__btn  btn--clear"
+          >
+            <AiOutlineClose />
+          </button>
+        </header>
+
+        {/* sidebar Items */}
+
+        <div className="sidebar__items">{ItemsList}</div>
+
+        {/* checkout */}
+
+        <footer>
+          <div className="sidebar__divider" />
+
+          {isFavoritesOpen ? (
             <button
+              disabled={!favoriteItems.length}
               onClick={() => {
-                if (isFavoritesOpen) dispatch(setIsFavorite());
-                else if (isOpen) dispatch(setIsCartOpen());
+                favoriteItems.forEach((item: any) =>
+                  dispatch(addItem({ item }))
+                );
+                favoriteItems.forEach(({ id }) =>
+                  dispatch(removeFavoriteItem({ id }))
+                );
               }}
-              className="sidebar__header__btn  btn--clear"
+              className="sidebar__total-btn  btn--clear"
             >
-              <AiOutlineClose />
+              ADD ALL TO CART
             </button>
-          </header>
-
-          {/* sidebar Items */}
-
-          <div className="sidebar__items">{ItemsList}</div>
-
-          {/* checkout */}
-
-          <footer>
-            <div className="sidebar__divider" />
-
-            {isFavoritesOpen ? (
+          ) : (
+            <>
+              <div className="sidebar__total">
+                <p> Subtotal</p>
+                <span>${total.toFixed(2)}</span>
+              </div>
               <button
-                disabled={!favoriteItems.length}
-                onClick={() => {
-                  favoriteItems.forEach((item: any) =>
-                    dispatch(addItem({ item }))
-                  );
-                  favoriteItems.forEach(({ id }) =>
-                    dispatch(removeFavoriteItem({ id }))
-                  );
-                }}
+                disabled={!cartItems.length}
                 className="sidebar__total-btn  btn--clear"
               >
-                ADD ALL TO CART
+                CHECKOUT
               </button>
-            ) : (
-              <>
-                <div className="sidebar__total">
-                  <p> Subtotal</p>
-                  <span>${total.toFixed(2)}</span>
-                </div>
-                <button
-                  disabled={!cartItems.length}
-                  className="sidebar__total-btn  btn--clear"
-                >
-                  CHECKOUT
-                </button>
-              </>
-            )}
-          </footer>
-        </aside>
-      </div>
-    </>
+            </>
+          )}
+        </footer>
+      </aside>
+    </div>
   );
 };
 

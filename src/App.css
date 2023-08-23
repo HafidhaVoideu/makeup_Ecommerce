@@ -42,7 +42,7 @@ ul {
 }
 
 body::-webkit-scrollbar {
-  width: 1em;
+  width: 10px;
 }
 
 body::-webkit-scrollbar-track {
@@ -50,8 +50,8 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: darkgrey;
-  outline: 1px solid slategrey;
+  background-color: var(--orange);
+  outline: none;
 }
 
 .overlay {
@@ -63,6 +63,14 @@ body::-webkit-scrollbar-thumb {
   z-index: 3;
   background-color: black;
   opacity: 0.4;
+}
+
+.unfound {
+  margin: 12rem auto;
+  text-align: center;
+
+  color: rgb(188, 185, 185);
+  font-size: clamp(2rem, -0.875rem + 3.1vh, 4rem);
 }
 
 @media screen and (min-width: 1024px) {

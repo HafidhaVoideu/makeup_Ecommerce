@@ -1,13 +1,12 @@
 .sidebar {
   overflow: hidden;
-  padding: 2rem;
 }
 
 .sidebar__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
+  padding: 0.2rem;
   margin: 0.2rem;
 }
 
@@ -81,7 +80,7 @@
 .sidebar__total-btn:hover {
   color: black;
   background-color: white;
-  border: 1px rgb(41, 40, 40) solid;
+  border: 1px solid rgb(41, 40, 40);
   transition: all 0.5s ease-in-out;
 }
 .sidebar__total-btn:disabled {

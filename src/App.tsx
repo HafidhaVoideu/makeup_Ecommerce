@@ -16,7 +16,7 @@ function App() {
     window.scrollTo(0, 0);
   }, [pathname]);
   return (
-    <div className="app">
+    <>
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
@@ -26,7 +26,7 @@ function App() {
           <Route path="/about" element={<About />} />
         </Route>
       </Routes>
-    </div>
+    </>
   );
 }
 

@@ -9,6 +9,7 @@
 .favoriteitem__btn:hover {
   transition: all 0.2s ease-in-out;
   color: var(--black);
+  border: 1px solid grey;
   background-color: white;
 }
 

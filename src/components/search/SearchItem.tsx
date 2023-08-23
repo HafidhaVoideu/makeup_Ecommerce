@@ -9,12 +9,13 @@ const SearchItem = ({
   price,
 }: ProductType) => {
   const navigate = useNavigate();
+
+  const imageUrl = api_featured_image || image_link;
+
   return (
     <article
       className="cartItem "
-      onClick={() =>
-        navigate(`/item/${api_featured_image?.split("/").join("")}`)
-      }
+      onClick={() => navigate(`/item/${imageUrl?.split("/").join("")}`)}
     >
       <div className="cartItem__img">
         <img src={api_featured_image || image_link} alt="product" />

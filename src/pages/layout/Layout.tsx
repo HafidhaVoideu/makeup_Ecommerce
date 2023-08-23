@@ -10,10 +10,10 @@ const Layout = () => {
   });
   return (
     <>
+      <Sidebar />
       <Header />
       <Outlet />
       <Footer />
-      <Sidebar />
     </>
   );
 };

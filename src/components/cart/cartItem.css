@@ -4,18 +4,21 @@
   gap: 1rem;
   padding: 0.4rem;
   margin-bottom: 1rem;
-  margin: 0 AUTO;
+  margin: 0 auto;
+  cursor: pointer;
 }
 
 .cartItem__img {
-  flex: 0.5;
+  flex: 0.4;
+
+  object-fit: cover;
 }
 
 .cartItem__content {
   display: flex;
-  flex: 2.5;
+  flex: 1;
   flex-direction: column;
-  gap: 0.7rem;
+  gap: 0.5rem;
 }
 
 .cartItem__content__header {
@@ -74,6 +77,7 @@
   font-size: 0.7rem;
   font-weight: 700;
 }
+
 .item__count {
   font-size: 0.7rem;
 }
